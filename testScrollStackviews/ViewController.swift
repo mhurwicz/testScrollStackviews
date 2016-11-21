@@ -12,6 +12,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var mainScroll: UIScrollView!
     
+    let stackHeight: CGFloat = 30.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mainScroll.delegate = self
@@ -33,13 +35,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             {
             case UISwipeGestureRecognizerDirection.Down:
                 print("DOWN")
-                if (mainScroll.contentOffset.y >= 30) {
-                    mainScroll.contentOffset.y = mainScroll.contentOffset.y - 85
+                if (mainScroll.contentOffset.y >= stackHeight) {
+                    mainScroll.contentOffset.y = mainScroll.contentOffset.y - stackHeight
                 }
             case UISwipeGestureRecognizerDirection.Up:
                 print("UP \(mainScroll.contentOffset.y)")
-                if (mainScroll.contentOffset.y <= 30*16 ) {
-                    mainScroll.contentOffset.y = mainScroll.contentOffset.y+85
+                if (mainScroll.contentOffset.y <= stackHeight*16 ) {
+                    mainScroll.contentOffset.y = mainScroll.contentOffset.y+stackHeight
                 }
             default:
                 break
